@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import commercialImage from "../assets/commercial-dumpster.jpg";
+import constructionImage from "../assets/construction-dumpster.jpg";
+import residentialImage from "../assets/residential-dumpster.jpg";
+import { services } from "../data/site";
+
+const images = [residentialImage, constructionImage, commercialImage];
+const alts = [
+  "Residential roll-off dumpster for a home cleanout in Haines City",
+  "Construction dumpster ready for renovation debris in Haines City",
+  "Commercial dumpster positioned beside a Haines City business property",
+];
+---
+
+<div class="grid grid--3">
+  {services.map((service, index) => (
+    <article class="card service-card">
+      <Image
+        src={images[index]}
+        alt={alts[index]}
+        width={640}
+        height={480}
+        loading="lazy"
+        decoding="async"
+        quality={55}
+      />
+      <div class="service-card__body">
+        <h3>{service.name}</h3>
+        <p>{service.description}</p>
+        <a class="text-link" href={service.slug}>Explore {service.shortName} →</a>
+      </div>
+    </article>
+  ))}
+</div>

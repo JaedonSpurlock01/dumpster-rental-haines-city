@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import defaultHero from "../assets/dumpster-hero.jpg";
+import { business } from "../data/site";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  image?: ImageMetadata;
+  alt?: string;
+}
+
+const {
+  eyebrow = "Local roll-off container service",
+  title,
+  description,
+  image = defaultHero,
+  alt = "Green roll-off dumpster placed on a driveway in Haines City, Florida",
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero__image">
+    <Image
+      src={image}
+      alt={alt}
+      width={768}
+      height={Math.round((768 / image.width) * image.height)}
+      loading="eager"
+      fetchpriority="high"
+      quality={45}
+    />
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="container hero__content">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="hero__lede">{description}</p>
+    <div class="hero__actions">
+      <a class="button" href="/contact/">Get a Free Estimate</a>
+      <a class="button button--secondary" href={business.phoneHref}>Call {business.phoneDisplay}</a>
+    </div>
+  </div>
+</section>

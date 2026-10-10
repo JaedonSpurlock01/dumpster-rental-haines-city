@@ -1,0 +1,195 @@
+---
+import { Image } from "astro:assets";
+import deliveryImage from "../assets/dumpster-delivery.jpg";
+import CtaBand from "../components/CtaBand.astro";
+import Hero from "../components/Hero.astro";
+import { business } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Dumpster Size Guide for Haines City",
+  url: `${business.url}/dumpster-sizes/`,
+  description:
+    "A practical guide to common 10, 15, 20, 30, and 40 yard roll-off dumpster sizes and the projects they may fit.",
+  about: { "@id": `${business.url}/#business` },
+};
+---
+
+<BaseLayout
+  title="Dumpster Sizes Haines City | Roll-Off Size Guide"
+  description="Compare common 10, 15, 20, 30, and 40 yard dumpster sizes for Haines City cleanouts, roofing, remodeling, and construction."
+  schema={pageSchema}
+>
+  <Hero
+    eyebrow="Roll-off container size guide"
+    title="Dumpster Sizes for Haines City Projects"
+    description="Compare common roll-off capacity categories, then tell us about your debris, site access, and schedule. We will help you ask the right questions before you rent."
+    image={deliveryImage}
+    alt="Roll-off dumpster delivery showing container size and site access in Haines City"
+  />
+
+  <section class="section">
+    <div class="container media-grid">
+      <div class="prose">
+        <p class="eyebrow">Start with the project</p>
+        <h2>Dumpster size names describe volume, not one universal container</h2>
+        <p>
+          Roll-off dumpsters are commonly described by cubic-yard capacity. A 10 yard dumpster holds roughly 10 cubic yards of material, while a 30 yard dumpster holds roughly 30. The name helps compare volume, but it does not guarantee one exact set of exterior dimensions, weight allowance, or door style.
+        </p>
+        <p>
+          Container inventory varies by provider and date. Not every 10, 15, 20, 30, or 40 yard dumpster is available for every material or property. Before scheduling, confirm the actual dimensions, included weight, accepted debris, rental period, and available sizes for your Haines City project.
+        </p>
+        <p>
+          Bigger is not automatically better. Dense debris can reach a weight limit before a container looks full, while furniture and household clutter can consume volume without the same weight. Site access may also rule out a longer or taller container.
+        </p>
+        <a class="text-link" href="/contact/">Ask for a project-based size recommendation →</a>
+      </div>
+      <div class="media-frame">
+        <Image
+          src={deliveryImage}
+          alt="Delivery truck positioning an open-top roll-off container in Haines City"
+          width={896}
+          height={504}
+          loading="lazy"
+          decoding="async"
+          quality={55}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <p class="eyebrow">Common capacity categories</p>
+      <h2>Compare 10, 15, 20, 30, and 40 yard dumpsters</h2>
+      <p class="section-intro">
+        These are general planning examples, not a promise of availability or material acceptance. Describe your actual debris before selecting a roll-off dumpster size.
+      </p>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>10 Yard Dumpster</h3>
+          <p>
+            A 10 yard dumpster is often considered a small dumpster rental. It may fit a garage or attic cleanout, bathroom remodel, flooring removal, small landscaping cleanup, or limited roofing debris.
+          </p>
+          <p>Ask whether dense materials require a special load plan and whether the container dimensions fit your driveway.</p>
+        </article>
+        <article class="card">
+          <h3>15 Yard Dumpster</h3>
+          <p>
+            A 15 yard dumpster can add capacity without moving into the largest roll-off categories. Common planning uses include room renovations, estate cleanouts, moving cleanouts, cabinets, carpet, and moderate yard waste.
+          </p>
+          <p>Actual length and wall height vary, so confirm loading access before delivery.</p>
+        </article>
+        <article class="card">
+          <h3>20 Yard Dumpster</h3>
+          <p>
+            A 20 yard dumpster is frequently considered for medium home renovations, larger cleanouts, roofing projects, flooring, deck material, and construction debris.
+          </p>
+          <p>Discuss shingles, concrete, brick, dirt, tile, and other heavy debris separately because volume alone does not determine a safe load.</p>
+        </article>
+        <article class="card">
+          <h3>30 Yard Dumpster</h3>
+          <p>
+            A 30 yard dumpster may suit whole-home renovation debris, larger construction cleanups, demolition material, commercial cleanouts, and bulky waste.
+          </p>
+          <p>A larger footprint and taller walls can affect placement and loading, so review truck access and how material will enter the container.</p>
+        </article>
+        <article class="card">
+          <h3>40 Yard Dumpster</h3>
+          <p>
+            A 40 yard dumpster is a high-volume category commonly associated with major construction, demolition, and large commercial projects where the site has substantial space.
+          </p>
+          <p>Availability can be limited, and heavy debris may require a smaller dedicated container. Never choose this size by volume alone.</p>
+        </article>
+        <article class="card">
+          <h3>Not sure which size?</h3>
+          <p>
+            List the project areas, debris types, bulky items, and approximate square footage. Note the placement surface, access width, overhead clearance, and preferred rental dates.
+          </p>
+          <p>That information is more useful than guessing from a generic dumpster-size chart.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid--2">
+      <div class="prose">
+        <p class="eyebrow">Size by project</p>
+        <h2>Connect the container to the debris you expect</h2>
+        <p>
+          Home cleanout dumpster rentals often need room for furniture, boxes, household junk, and bulky items. Garage, attic, estate, move-out, and whole-house cleanouts can look similar by square footage but create very different volumes.
+        </p>
+        <p>
+          Remodeling dumpster rentals may receive drywall, cabinets, flooring, lumber, fixtures, and packaging when those materials are approved. Roofing dumpster rentals require extra attention to shingle weight and roof area. Yard waste and storm debris can include branches and brush, but acceptance rules may differ from general household or construction debris.
+        </p>
+        <p>
+          Construction and demolition dumpster rentals may need capacity for framing, siding, decking, and tear-out material. Concrete, brick, soil, gravel, and masonry are dense and may need a dedicated container or different fill limit. Always identify them before ordering.
+        </p>
+      </div>
+      <div class="prose">
+        <p class="eyebrow">Rental versus hauling</p>
+        <h2>Dumpster rental is not the same as full-service junk removal</h2>
+        <p>
+          With a temporary dumpster rental, a container is delivered and you or your crew load approved material during the rental period. Full-service junk removal generally sends a crew to carry and haul items for you. This site offers dumpster-rental estimates, not a promise of labor-based junk removal.
+        </p>
+        <p>
+          A roll-off container can work well when you want time to sort a property, complete a renovation, or load debris as work progresses. Full-service hauling may fit someone who cannot load material or only has a few items. Understanding that difference helps you search for the right service.
+        </p>
+        <p>
+          Explore <a href="/services/residential-dumpster-rental/">residential dumpster rental</a>, <a href="/services/construction-dumpster-rental/">construction dumpster rental</a>, or <a href="/services/commercial-dumpster-rental/">commercial dumpster rental</a> for project-specific planning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Understand the estimate</p>
+      <h2>What affects dumpster rental cost?</h2>
+      <p class="section-intro">
+        An affordable dumpster rental is the one that fits the project terms without relying on a misleading base price. Ask what the quote covers and what could change the final amount.
+      </p>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Container and rental period</h3>
+          <p>The selected capacity, rental length, delivery schedule, and pickup arrangements can all affect pricing.</p>
+        </article>
+        <article class="card">
+          <h3>Debris and disposal weight</h3>
+          <p>Material type, included weight, overage terms, prohibited items, and special handling requirements matter as much as volume.</p>
+        </article>
+        <article class="card">
+          <h3>Placement and access</h3>
+          <p>Delivery distance, site access, surface conditions, permits, and difficult placement requests may affect the available options.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Before you book</p>
+      <h2>Questions to ask about any roll-off dumpster size</h2>
+      <ul class="check-list">
+        <li>Which dumpster sizes are available for my dates and debris?</li>
+        <li>What are the exact exterior dimensions of the delivered container?</li>
+        <li>What rental period and disposal weight does the estimate include?</li>
+        <li>Which items are accepted, restricted, or charged separately?</li>
+        <li>How high can I load the dumpster, and how should weight be distributed?</li>
+        <li>Does my placement location require property approval or a city permit?</li>
+        <li>How much truck clearance is needed for delivery and pickup?</li>
+      </ul>
+      <p>
+        Call <a href={business.phoneHref}>{business.phoneDisplay}</a> or send the project details through our contact form. A free estimate should reflect your actual material, site, and timing rather than a size name alone.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Find a practical dumpster size for your cleanup"
+    text="Describe the project, debris, access, and schedule. Get a free Haines City dumpster rental estimate."
+  />
+</BaseLayout>

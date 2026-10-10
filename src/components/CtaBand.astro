@@ -1,0 +1,26 @@
+---
+import { business } from "../data/site";
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+
+const {
+  title = "Ready to clear space for what comes next?",
+  text = "Tell us about your project and get a free dumpster rental estimate for Haines City.",
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <div class="cta-actions">
+      <a class="button" href="/contact/">Request an Estimate</a>
+      <a class="button button--secondary" href={business.phoneHref}>Call {business.phoneDisplay}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "dumpsterrentalhainescity",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2026-10-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "send_email": [
+    {
+      "name": "LEAD_EMAIL",
+      "allowed_sender_addresses": [
+        "info@dumpsterrentalshainescity.com"
+      ],
+      "allowed_destination_addresses": [
+        "spurjae@gmail.com"
+      ]
+    }
+  ],
+  "vars": {
+    "LEAD_DELIVERY_EMAIL": "spurjae@gmail.com",
+    "LEAD_NOTIFY_EMAIL": "spurjae@gmail.com"
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01
+    }
+  }
+}

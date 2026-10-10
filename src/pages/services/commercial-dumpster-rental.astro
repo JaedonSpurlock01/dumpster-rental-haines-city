@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import commercialImage from "../../assets/commercial-dumpster.jpg";
+import deliveryImage from "../../assets/dumpster-delivery.jpg";
+import CtaBand from "../../components/CtaBand.astro";
+import Hero from "../../components/Hero.astro";
+import { business } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Commercial Dumpster Rental",
+  serviceType: "Commercial roll-off dumpster rental",
+  url: `${business.url}/services/commercial-dumpster-rental/`,
+  provider: { "@id": `${business.url}/#business` },
+  areaServed: { "@type": "City", name: "Haines City, Florida" },
+};
+---
+
+<BaseLayout
+  title="Commercial Dumpster Rental Haines City, FL"
+  description="Plan business cleanouts, tenant improvements, and property projects with commercial dumpster rental in Haines City. Free estimates."
+  schema={serviceSchema}
+>
+  <Hero
+    eyebrow="Temporary business cleanup"
+    title="Commercial Dumpster Rental in Haines City"
+    description="Add practical waste capacity for property cleanups, tenant improvements, inventory changes, and other approved commercial project debris."
+    image={commercialImage}
+    alt="Commercial roll-off dumpster at a Haines City business property"
+  />
+
+  <section class="section">
+    <div class="container media-grid">
+      <div class="prose">
+        <p class="eyebrow">Plan around operations</p>
+        <h2>Clear project debris without losing useful business space</h2>
+        <p>
+          Commercial projects often happen alongside daily activity. A property team may need to clear a unit while other tenants remain open. A retailer may replace fixtures between operating hours. An office update can create furniture, packaging, and renovation debris faster than routine waste service can manage.
+        </p>
+        <p>
+          A temporary roll-off dumpster creates dedicated capacity for a defined project. Instead of crowding a standard waste enclosure or stacking material behind the building, your team can move approved debris to one planned location. That helps protect service lanes, staging areas, and customer-facing space.
+        </p>
+        <p>
+          Dumpster Rentals Haines City helps you consider container capacity, placement, access, material, and timing. Tell us how the property operates, which areas must stay open, and what the project will remove. We will use those details to discuss an appropriate service plan and free estimate.
+        </p>
+        <a class="text-link" href="/contact/">Request a free commercial dumpster estimate →</a>
+      </div>
+      <div class="media-frame">
+        <Image
+          src={deliveryImage}
+          alt="Roll-off container delivery for a commercial project in Haines City"
+          width={896}
+          height={504}
+          loading="lazy"
+          decoding="async"
+          quality={55}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <p class="eyebrow">Project-focused service</p>
+      <h2>Useful capacity for many commercial cleanups</h2>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Tenant improvements</h3>
+          <p>Collect approved finishes, cabinetry, fixtures, flooring, and packaging during office, retail, or service-space updates.</p>
+        </article>
+        <article class="card">
+          <h3>Commercial and Retail Cleanouts</h3>
+          <p>Organize debris from turnovers, storage areas, common-space refreshes, and accumulated bulky waste that routine containers cannot handle.</p>
+        </article>
+        <article class="card">
+          <h3>Inventory and fixture changes</h3>
+          <p>Plan capacity for approved shelving, displays, furniture, packaging, and other material created by a business transition or seasonal reset.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid--2">
+      <div class="prose">
+        <p class="eyebrow">Placement strategy</p>
+        <h2>Keep customers, tenants, vendors, and trucks in mind</h2>
+        <p>
+          Commercial access can change by hour. A loading lane that looks empty in the morning may serve vendors later in the day. A parking area may need space for customers, fire access, waste collection, or deliveries. Choose a dumpster location only after considering the complete traffic pattern.
+        </p>
+        <p>
+          Confirm property-management approval and any site rules before scheduling. Discuss gates, security access, bollards, curbs, overhead canopies, trees, utilities, pavement condition, and turning room. If delivery must happen during a specific window, include that request when you ask for an estimate.
+        </p>
+      </div>
+      <div class="prose">
+        <p class="eyebrow">Material control</p>
+        <h2>Tell everyone on the project what belongs in the container</h2>
+        <p>
+          A shared commercial site can make load control harder. Clearly identify the container as project-use only, and give employees, tenants, and contractors the same accepted-material guidance. Keep lids, gates, or the surrounding area managed according to the container and site requirements.
+        </p>
+        <p>
+          Chemicals, liquids, paint, batteries, propane tanks, electronics, appliances, tires, food waste, and regulated or hazardous materials may need separate handling. Describe questionable inventory or maintenance materials before loading. Never assume a business product can enter a standard debris container.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Simple coordination</p>
+      <h2>Build the rental around your commercial project</h2>
+      <ol class="timeline">
+        <li><h3>Outline the work</h3><p>Share the property type, project area, debris, operating constraints, and preferred rental dates.</p></li>
+        <li><h3>Review your free estimate</h3><p>Discuss an appropriate container, material guidelines, placement plan, access, and service timing.</p></li>
+        <li><h3>Prepare the location</h3><p>Secure approval, clear the approach, notify affected teams, and mark the placement area.</p></li>
+        <li><h3>Manage loading and removal</h3><p>Keep the load contained and the pickup path open, then coordinate removal when the project is complete.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Clear information first</p>
+      <h2>Request a quote based on your actual site</h2>
+      <p>
+        Two businesses with the same square footage can have completely different dumpster needs. One may remove lightweight displays and boxes; another may remove dense flooring and built-in fixtures. Start with the material list, then add the project size, access conditions, and schedule.
+      </p>
+      <p>
+        If several contractors will use the container, name the debris each trade expects to create. If the project has phases, explain whether you expect one combined load or separate material. Better details help us discuss the rental without relying on broad assumptions.
+      </p>
+      <p>
+        Read our <a href="/">Haines City dumpster rental guide</a> for general placement and loading information. You can also explore construction dumpster service for active renovation work or residential service for home-focused cleanouts. Every service page leads to the same goal: a plan that fits the project.
+      </p>
+      <p>
+        Call <a href={business.phoneHref}>{business.phoneDisplay}</a> or use our <a href="/contact/">estimate form</a>. We are available Monday through Saturday from 7am to 7pm, and your initial estimate is free.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Plan temporary waste capacity for your business"
+    text="Tell us about the property, material, access, and timing. Get a free commercial dumpster rental estimate."
+  />
+</BaseLayout>

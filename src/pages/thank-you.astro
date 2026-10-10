@@ -1,0 +1,24 @@
+---
+import { business } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Thank You | Dumpster Rentals Haines City"
+  description="Thank you for contacting Dumpster Rentals Haines City."
+  noindex
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Request received</p>
+      <h1>Thank you for reaching out</h1>
+      <p>
+        Your estimate request has been sent. We will review the details you provided and follow up using your contact information.
+      </p>
+      <div class="hero__actions">
+        <a class="button" href="/">Return Home</a>
+        <a class="button button--secondary" href={business.phoneHref}>Call {business.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

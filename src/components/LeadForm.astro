@@ -1,0 +1,49 @@
+---
+import { services } from "../data/site";
+---
+
+<div id="error-fields" class="alert" role="alert">
+  Please complete every field with valid contact and project information.
+</div>
+<div id="error-send" class="alert" role="alert">
+  We could not send your request. Please call us so we can help right away.
+</div>
+
+<form class="lead-form" action="/api/lead" method="POST">
+  <div class="field honeypot" aria-hidden="true">
+    <label for="company_website">Company website</label>
+    <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="field">
+    <label for="service">Service needed</label>
+    <select id="service" name="service" required>
+      <option value="">Choose a service</option>
+      {services.map((service) => <option value={service.name}>{service.name}</option>)}
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="size">Approximate project size (sq ft)</label>
+    <input id="size" name="size" type="number" min="1" step="1" inputmode="numeric" placeholder="For example, 1200" required />
+  </div>
+
+  <div class="lead-form__row">
+    <div class="field">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" maxlength="100" autocomplete="name" required />
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" maxlength="30" autocomplete="tel" placeholder="(863) 555-0123" required />
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" maxlength="254" autocomplete="email" required />
+  </div>
+
+  <button class="button button--dark" type="submit">Request My Free Estimate</button>
+  <p class="form-note">By submitting this form, you agree that we may contact you about your request. No payment is required.</p>
+</form>

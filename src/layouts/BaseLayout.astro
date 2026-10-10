@@ -1,0 +1,77 @@
+---
+import heroImage from "../assets/dumpster-hero.jpg";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import InternalLinks from "../components/InternalLinks.astro";
+import { business } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  hideInternalLinks?: boolean;
+}
+
+const {
+  title,
+  description,
+  noindex = false,
+  schema,
+  hideInternalLinks = false,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, business.url).toString();
+const socialImage = new URL(heroImage.src, business.url).toString();
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${business.url}/#business`,
+  name: business.name,
+  image: socialImage,
+  telephone: "+1-863-695-2087",
+  email: business.email,
+  url: business.url,
+  openingHours: business.openingHours,
+  areaServed: {
+    "@type": "City",
+    name: `${business.city}, ${business.region}`,
+  },
+  priceRange: "$$",
+  sameAs: ["https://facebook.com", "https://instagram.com"],
+};
+const schemas = [localBusinessSchema, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : [])];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#0d2a21" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    {!hideInternalLinks && <InternalLinks />}
+    <Footer />
+  </body>
+</html>

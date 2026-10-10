@@ -1,0 +1,65 @@
+---
+import LeadForm from "../components/LeadForm.astro";
+import { business } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const prerender = false;
+---
+
+<BaseLayout
+  title="Free Dumpster Rental Estimate | Haines City"
+  description="Request a free dumpster rental estimate in Haines City. Send your project details or call Dumpster Rentals Haines City at (863) 695-2087."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Free, no-obligation estimate</p>
+      <h1>Tell us about your Haines City cleanup</h1>
+      <p>
+        Share the basic project details below. We will use them to understand your service needs and follow up about a dumpster rental estimate.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container lead-layout">
+      <div>
+        <p class="eyebrow">Request an estimate</p>
+        <h2>Start with five simple details</h2>
+        <p>
+          Choose the closest service, estimate the project area, and provide your contact information. Your estimate is 100% free, and submitting this form does not require you to schedule.
+        </p>
+        <LeadForm />
+      </div>
+      <aside class="card">
+        <h2>Prefer to talk?</h2>
+        <p>
+          Call during business hours and describe the project, debris, preferred timing, and placement area.
+        </p>
+        <p>
+          <strong>Phone</strong><br />
+          <a href={business.phoneHref}>{business.phoneDisplay}</a>
+        </p>
+        <p>
+          <strong>Email</strong><br />
+          <a href={`mailto:${business.email}`}>{business.email}</a>
+        </p>
+        <p>
+          <strong>Service area</strong><br />
+          Haines City, Florida
+        </p>
+        <p>
+          <strong>Hours</strong><br />
+          {business.hoursDisplay}
+        </p>
+        <h3>Helpful information to mention</h3>
+        <ul class="check-list">
+          <li>Main debris types</li>
+          <li>Bulky or dense material</li>
+          <li>Target delivery date</li>
+          <li>Driveway or site access limits</li>
+          <li>Anything that may need special disposal</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

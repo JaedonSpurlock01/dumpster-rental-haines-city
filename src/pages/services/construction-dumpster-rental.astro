@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import constructionImage from "../../assets/construction-dumpster.jpg";
+import deliveryImage from "../../assets/dumpster-delivery.jpg";
+import CtaBand from "../../components/CtaBand.astro";
+import Hero from "../../components/Hero.astro";
+import { business } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Construction Dumpster Rental",
+  serviceType: "Construction roll-off dumpster rental",
+  url: `${business.url}/services/construction-dumpster-rental/`,
+  provider: { "@id": `${business.url}/#business` },
+  areaServed: { "@type": "City", name: "Haines City, Florida" },
+};
+---
+
+<BaseLayout
+  title="Construction Dumpster Rental Haines City, FL"
+  description="Keep renovation and job-site debris organized with construction dumpster rental in Haines City. Request a free project estimate."
+  schema={serviceSchema}
+>
+  <Hero
+    eyebrow="Job-site debris control"
+    title="Construction Dumpster Rental in Haines City"
+    description="Give crews a clear destination for approved remodeling and construction debris. Plan delivery, loading, and pickup around the way your site operates."
+    image={constructionImage}
+    alt="Construction roll-off dumpster for renovation debris in Haines City"
+  />
+
+  <section class="section">
+    <div class="container media-grid">
+      <div class="prose">
+        <p class="eyebrow">Protect productive space</p>
+        <h2>Keep debris from competing with the work</h2>
+        <p>
+          Demolition and installation move faster when crews do not have to work around loose waste. Cutoffs, packaging, removed finishes, and approved building material can quickly fill staging areas and access routes. A construction dumpster creates one visible, controlled collection point for the project.
+        </p>
+        <p>
+          Dumpster Rentals Haines City helps contractors, trades, property teams, and hands-on owners plan temporary container service. We ask about the work, expected debris, approximate project size, site layout, and schedule. Those details help shape the container recommendation and free estimate.
+        </p>
+        <p>
+          The best plan considers both volume and weight. Bulky framing, cabinetry, and packaging behave differently from dense roofing, masonry, dirt, or concrete. Material restrictions and load requirements can vary, so identify heavy or unusual debris before scheduling rather than assuming every item can share one container.
+        </p>
+        <a class="text-link" href="/contact/">Get a free construction dumpster estimate →</a>
+      </div>
+      <div class="media-frame">
+        <Image
+          src={deliveryImage}
+          alt="Roll-off truck delivering a construction dumpster in Haines City"
+          width={896}
+          height={504}
+          loading="lazy"
+          decoding="async"
+          quality={55}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <p class="eyebrow">Built around the project</p>
+      <h2>Construction containers for changing job-site needs</h2>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Interior renovations</h3>
+          <p>Collect approved drywall, cabinets, trim, flooring, fixtures, and packaging near the work area while keeping entrances and staging zones more organized.</p>
+        </article>
+        <article class="card">
+          <h3>Roofing Dumpster Rental</h3>
+          <p>Discuss dense roofing material, siding, decking, and exterior debris before delivery so container capacity and loading requirements match the project.</p>
+        </article>
+        <article class="card">
+          <h3>Construction and Demolition Dumpsters</h3>
+          <p>Support planned tear-out and build phases with a designated debris point. Separate prohibited materials and never mix incompatible loads without approval.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid--2">
+      <div class="prose">
+        <p class="eyebrow">Site coordination</p>
+        <h2>Place the dumpster where crews can use it safely</h2>
+        <p>
+          A few extra steps can save repeated handling. Choose a location near the work but outside active equipment paths, emergency access, material drops, and daily parking. The truck needs a clear approach plus overhead room, and the container must remain reachable when pickup day arrives.
+        </p>
+        <p>
+          Review gate widths, soft ground, slopes, low utilities, tree limbs, scaffolding, and temporary fencing. Site conditions often change as work progresses. Keep subcontractors informed so vehicles and stored material do not block the container on a scheduled service day.
+        </p>
+      </div>
+      <div class="prose">
+        <p class="eyebrow">Load planning</p>
+        <h2>Manage weight, fill height, and material separation</h2>
+        <p>
+          Distribute debris rather than concentrating the entire load in one area. Break down bulky approved material when practical, keep every piece within the walls, and stop at the fill line. Material that extends above the container can make transportation unsafe.
+        </p>
+        <p>
+          Tell us about concrete, block, brick, roofing, soil, or other dense loads before you rent. Paint, solvents, chemicals, batteries, fuel containers, asbestos-containing material, and other hazardous or regulated waste require special handling and may not enter a standard construction dumpster.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">A cleaner workflow</p>
+      <h2>Coordinate dumpster service with your schedule</h2>
+      <ol class="timeline">
+        <li><h3>Define the scope</h3><p>Share the work area, major debris streams, project phase, access conditions, and target dates.</p></li>
+        <li><h3>Confirm the rental plan</h3><p>Review capacity, material rules, placement, timing, and the details of your free estimate.</p></li>
+        <li><h3>Prepare the site</h3><p>Clear the delivery route and mark the location. Keep crew vehicles and stored material away from the approach.</p></li>
+        <li><h3>Monitor the load</h3><p>Keep debris contained, watch fill height, and coordinate pickup before the container begins to obstruct work.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Details improve the estimate</p>
+      <h2>Talk through the debris before you schedule</h2>
+      <p>
+        “Construction waste” can describe everything from empty product boxes to dense tear-off material. Give us a direct list of the primary debris and explain whether different phases will create different loads. If another trade controls part of the cleanup, include that in the plan.
+      </p>
+      <p>
+        We do not recommend hiding uncertain material or assuming a generic online list applies to every disposal facility. Ask first. Clear information helps you understand restrictions and reduces the chance of a pickup delay.
+      </p>
+      <p>
+        Visit our <a href="/">dumpster rental Haines City overview</a> for general planning guidance, or review residential and commercial service if the project fits those needs better. You can also go directly to our <a href="/contact/">contact page</a> and send the project size, service type, and your contact details.
+      </p>
+      <p>
+        Call <a href={business.phoneHref}>{business.phoneDisplay}</a> Monday through Saturday from 7am to 7pm. We will ask focused questions and prepare a free estimate based on the information you provide.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Keep your Haines City job site moving"
+    text="Share your scope, debris, access, and schedule. Request a free construction dumpster rental estimate."
+  />
+</BaseLayout>

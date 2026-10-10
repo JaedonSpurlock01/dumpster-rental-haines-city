@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://dumpsterrentalshainescity.com/sitemap-index.xml

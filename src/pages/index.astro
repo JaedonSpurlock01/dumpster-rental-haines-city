@@ -1,0 +1,273 @@
+---
+import { Image } from "astro:assets";
+import deliveryImage from "../assets/dumpster-delivery.jpg";
+import CtaBand from "../components/CtaBand.astro";
+import FaqList from "../components/FaqList.astro";
+import Hero from "../components/Hero.astro";
+import ServicesGrid from "../components/ServicesGrid.astro";
+import { business, faqs } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Dumpster Rental Haines City, FL | Free Estimate"
+  description="Need a dumpster rental in Haines City, Florida? Get a free estimate for residential, construction, or commercial roll-off service."
+  schema={faqSchema}
+>
+  <Hero
+    title="Dumpster Rental in Haines City, Florida"
+    description="Make cleanup simpler with a roll-off container matched to your project. Tell us what you are removing, where you need the dumpster, and when you want to begin."
+  />
+
+  <div class="trust-strip" aria-label="Service highlights">
+    <div class="container trust-strip__inner">
+      <span>Free Estimates</span>
+      <span>Clear Guidance</span>
+      <span>Flexible Scheduling</span>
+      <span>Local Service</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container media-grid">
+      <div class="prose">
+        <p class="eyebrow">A practical cleanup plan</p>
+        <h2>Take control of debris without constant dump runs</h2>
+        <p>
+          A cleanup can lose momentum quickly when waste piles up. Loose material blocks walkways, fills trailers, and turns every work session into another trip to a disposal site. A well-placed roll-off container gives the project one dependable destination for debris.
+        </p>
+        <p>
+          Dumpster Rentals Haines City helps homeowners, contractors, property teams, and business operators plan temporary waste removal. We start with your project rather than pushing a one-size-fits-all answer. Tell us the type of material, the approximate project size, the available placement area, and the schedule you have in mind.
+        </p>
+        <p>
+          That conversation helps you compare container options and understand the details that affect a quote. You can ask about delivery access, rental timing, accepted materials, fill limits, and pickup before you commit. Our goal is to make your dumpster rental in Haines City easier to plan from the first call.
+        </p>
+        <p>
+          Whether you are emptying a garage, renovating interior rooms, replacing worn materials, or organizing debris from a commercial project, the basic need stays the same: a clean, accessible place to put waste while work continues.
+        </p>
+      </div>
+      <div class="media-frame">
+        <Image
+          src={deliveryImage}
+          alt="Roll-off dumpster delivery truck positioning a container in Haines City"
+          width={896}
+          height={504}
+          loading="lazy"
+          decoding="async"
+          quality={55}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream" aria-labelledby="services-heading">
+    <div class="container">
+      <p class="eyebrow">Dumpster rental services</p>
+      <h2 id="services-heading">Containers for homes, job sites, and businesses</h2>
+      <p class="section-intro">
+        Every project creates a different mix of material and timing needs. Explore the service that best matches your work, then contact us for a recommendation based on the details.
+      </p>
+      <ServicesGrid />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Why choose us</p>
+      <h2>A straightforward way to rent a dumpster</h2>
+      <p class="section-intro">
+        Good service starts before a container arrives. We focus on useful questions, clear expectations, careful coordination, and respect for your schedule and property.
+      </p>
+      <div class="grid grid--4">
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <h3>Integrity</h3>
+          <p>We ask about the information that can affect your rental and quote. You can review placement, debris, timing, and pickup expectations before scheduling.</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m14 7 3-3 3 3-3 3"/><path d="M17 4v10a6 6 0 0 1-6 6H4"/><path d="m7 17-3 3 3 3"/></svg>
+          </span>
+          <h3>Useful guidance</h3>
+          <p>You do not need to know a container size before calling. Describe the project and material so we can help you narrow the options.</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <h3>Scheduling clarity</h3>
+          <p>Delivery access and project timing matter. We discuss both early so you can prepare the placement area and keep work moving.</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M9 20v-6h6v6"/></svg>
+          </span>
+          <h3>Property awareness</h3>
+          <p>We encourage a firm, level placement area with a clear approach. Careful preparation supports a smoother delivery and pickup.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Three simple steps</p>
+      <h2>From free estimate to final pickup</h2>
+      <p class="section-intro">
+        A roll-off rental should support the work instead of becoming another project to manage. Start with a short conversation and a few practical details.
+      </p>
+      <ol class="timeline">
+        <li>
+          <h3>Tell us about the job</h3>
+          <p>Share the service you need, approximate project area, debris types, location details, and preferred dates. Mention tight driveways, gates, overhead lines, low branches, or other access limits.</p>
+        </li>
+        <li>
+          <h3>Review your free estimate</h3>
+          <p>We will discuss an appropriate container option and the factors included in your estimate. Confirm the material rules, rental period, placement, and pickup process before scheduling.</p>
+        </li>
+        <li>
+          <h3>Prepare for delivery</h3>
+          <p>Clear the agreed path and placement zone. Move vehicles, unlock gates, protect access to the site, and mark the preferred position if you will not be there.</p>
+        </li>
+        <li>
+          <h3>Load safely and schedule pickup</h3>
+          <p>Distribute debris, keep everything inside the walls, and never exceed the fill line. When the work is complete, make sure the container is accessible for removal.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container media-grid">
+      <div>
+        <p class="eyebrow">Choose with confidence</p>
+        <h2>Match the container to the material, not just the room count</h2>
+        <p>
+          People often estimate waste by looking only at the size of a house or business. Square footage helps, but it does not tell the whole story. A small roofing project can produce dense material, while a large household cleanout may produce bulky but lighter items.
+        </p>
+        <p>
+          Make a quick list before requesting a quote. Note the rooms or project areas involved, the main materials, bulky objects, and anything that may need special handling. Photos can also help you describe the volume, even though the final recommendation still depends on the full project.
+        </p>
+        <p>
+          Leave room for material you may uncover after work begins. A container that is too small can interrupt progress, but choosing the largest option without context may not make financial sense. Clear details support a better recommendation.
+        </p>
+        <p>
+          Review our <a href="/dumpster-sizes/">Haines City dumpster size guide</a> to compare common 10, 15, 20, 30, and 40 yard capacity categories before requesting your estimate.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Information to gather before you call</h3>
+        <ul class="check-list">
+          <li>Project type and approximate square footage</li>
+          <li>Main debris types and any heavy material</li>
+          <li>Bulky items or material that may be restricted</li>
+          <li>Preferred delivery and pickup window</li>
+          <li>Placement surface and access width</li>
+          <li>Gates, parked vehicles, trees, wires, and rooflines</li>
+        </ul>
+        <p>
+          Call <a href={business.phoneHref}>{business.phoneDisplay}</a> if you want to talk through these details with a person.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <p class="eyebrow">Project planning</p>
+      <h2>Prepare a safe, useful placement area</h2>
+      <div class="grid grid--2">
+        <div class="prose">
+          <p>
+            Location affects how easily you can load a container and how smoothly a driver can deliver it. Look for a firm, level surface that keeps the dumpster close enough to the project without blocking daily access. The delivery truck needs more room than the container itself, including space to approach, position, and depart.
+          </p>
+          <p>
+            Check above the path and placement zone. Tree limbs, power lines, awnings, and roof edges can create obstacles. Check beside the route for gateposts, walls, landscaping, parked cars, and narrow turns. If you have any doubt, explain the conditions when you request an estimate.
+          </p>
+          <p>
+            Driveway condition also matters. Existing cracks, soft surfaces, decorative pavers, underground systems, and steep slopes deserve discussion before delivery. No provider can promise that every surface will react the same way under a loaded container, so proactive planning matters.
+          </p>
+        </div>
+        <div class="prose">
+          <p>
+            Once the dumpster arrives, keep the surrounding area clear. Place debris fully inside rather than leaning objects against the exterior. Do not allow material to extend above the walls or hang over an edge. An orderly loading area helps everyone move safely around the project.
+          </p>
+          <p>
+            Separate prohibited or questionable items before work begins. Liquids, paint, chemicals, batteries, fuel, propane cylinders, tires, electronics, appliances, and hazardous materials may face special rules or may not be accepted. Never hide questionable material under other debris.
+          </p>
+          <p>
+            Requirements can change by material and disposal facility. Ask first instead of relying on a generic list online. A quick conversation can help you avoid delays when the container is collected.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Use the rental period well</p>
+      <h2>Schedule the dumpster around the work, not just delivery day</h2>
+      <div class="grid grid--2">
+        <div class="prose">
+          <p>
+            The most useful delivery date is not always the first day of a project. If a crew needs room to stage materials or protect floors before demolition, an early container may occupy space they still need. If you wait until debris blocks the site, however, cleanup can interrupt productive work. Build a simple sequence before choosing the date.
+          </p>
+          <p>
+            Start with preparation. Identify the placement area, get any property approval, clear the route, and separate items that require special disposal. Next, estimate when the largest volume of approved debris will appear. Plan delivery close enough to that phase that the container is available without sitting unused.
+          </p>
+          <p>
+            Think about who will load it. A homeowner working on weekends may need a different rental period than a crew completing a concentrated tear-out. A commercial project may need delivery or pickup outside busy customer hours. Share those practical constraints when you request your quote.
+          </p>
+          <p>
+            Weather can affect outdoor work and access. Haines City rain may soften unpaved areas or change a project schedule. Keep the placement route firm and accessible, and communicate if conditions at the property change before service.
+          </p>
+        </div>
+        <div class="prose">
+          <p>
+            During the rental, check the load instead of waiting until the last item. Watch how quickly the container fills, keep material below the walls, and make sure heavy debris is not creating an unexpected issue. Do not move the container, alter it, burn material inside it, or allow unapproved users to add waste.
+          </p>
+          <p>
+            Before pickup, walk around the entire container. Remove loose material from the ground, close any applicable doors or gates, and confirm nothing projects from the top or sides. Clear parked vehicles, equipment, and new material from the truck’s approach. Unlock access points before the scheduled service window.
+          </p>
+          <p>
+            If the project changes, call before making assumptions. Added rooms, a new debris type, weather delays, or a blocked route can affect the plan. Early communication gives everyone more time to review the next step.
+          </p>
+          <p>
+            A dumpster rental in Haines City works best as one part of the project schedule. Plan when it arrives, how it will be loaded, who will monitor it, and what must happen before removal. That small amount of organization can make the entire cleanup feel more manageable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Common questions</p>
+      <h2>Dumpster rental questions, answered</h2>
+      <p class="section-intro">
+        These answers cover the basics. Your project details determine the right service, so contact us when you need a specific recommendation.
+      </p>
+      <FaqList />
+    </div>
+  </section>
+
+  <CtaBand
+    title="Start your Haines City cleanup with a free estimate"
+    text="Call or send your project details online. We will help you plan the container, placement, and schedule."
+  />
+</BaseLayout>
