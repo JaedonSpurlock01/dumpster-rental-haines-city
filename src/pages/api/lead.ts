@@ -42,33 +42,36 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
 
   const service = clean(formData.get("service"), 100);
-  const sizeRaw = clean(formData.get("size"), 20);
   const name = clean(formData.get("name"), 100);
   const phone = clean(formData.get("phone"), 30);
   const email = clean(formData.get("email"), 254).toLowerCase();
-  const size = Number(sizeRaw);
+  const details = clean(formData.get("details"), 2000);
   const phoneDigits = phone.replace(/\D/g, "");
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   if (
     !allowedServices.has(service) ||
-    !Number.isFinite(size) ||
-    size <= 0 ||
     !name ||
     phoneDigits.length < 10 ||
     phoneDigits.length > 15 ||
-    !validEmail
+    !validEmail ||
+    details.length < 3
   ) {
     return redirect(request, "/contact/?error=1#error-fields");
   }
 
-  const env = locals.runtime.env;
-  const deliveryEmail = env.LEAD_DELIVERY_EMAIL?.trim();
-  const notifyEmail = env.LEAD_NOTIFY_EMAIL?.trim();
+  const env = locals.runtime?.env;
+  const deliveryEmail = env?.LEAD_DELIVERY_EMAIL?.trim();
+  const notifyEmail = env?.LEAD_NOTIFY_EMAIL?.trim();
 
-  if (!env.LEAD_EMAIL || !deliveryEmail) {
-    console.error(JSON.stringify({ message: "LEAD_EMAIL send failed:", reason: "missing binding or delivery address" }));
-    return redirect(request, "/contact/?error=send#error-send");
+  if (!env?.LEAD_EMAIL) {
+    console.error(JSON.stringify({ message: "LEAD_EMAIL send failed:", reason: "missing binding" }));
+    return redirect(request, "/contact/?error=bind#error-bind");
+  }
+
+  if (!deliveryEmail) {
+    console.error(JSON.stringify({ message: "LEAD_EMAIL send failed:", reason: "missing delivery address" }));
+    return redirect(request, "/contact/?error=config#error-config");
   }
 
   const safe = {
@@ -76,11 +79,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
     phone: escapeHtml(phone),
     email: escapeHtml(email),
     service: escapeHtml(service),
-    size: escapeHtml(String(size)),
+    details: escapeHtml(details).replaceAll("\n", "<br>"),
   };
 
   const message = {
-    from: `${business.name} <${business.email}>`,
+    from: {
+      name: business.name,
+      email: business.email,
+    },
     to: deliveryEmail,
     ...(notifyEmail && notifyEmail !== deliveryEmail ? { bcc: notifyEmail } : {}),
     replyTo: email,
@@ -92,7 +98,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
       `Phone: ${phone}`,
       `Email: ${email}`,
       `Service: ${service}`,
-      `Approximate project size: ${size} sq ft`,
+      "",
+      "Project details:",
+      details,
     ].join("\n"),
     html: `
       <h1>New dumpster rental lead</h1>
@@ -101,7 +109,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
         <tr><th align="left">Phone</th><td>${safe.phone}</td></tr>
         <tr><th align="left">Email</th><td>${safe.email}</td></tr>
         <tr><th align="left">Service</th><td>${safe.service}</td></tr>
-        <tr><th align="left">Approximate size</th><td>${safe.size} sq ft</td></tr>
+        <tr><th align="left">Project details</th><td>${safe.details}</td></tr>
       </table>
     `,
   };
@@ -109,9 +117,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
   try {
     await env.LEAD_EMAIL.send(message);
   } catch (error) {
+    const sendError = error as { code?: string; message?: string };
     console.error(
       JSON.stringify({
         message: "LEAD_EMAIL send failed:",
+        code: sendError.code ?? null,
         error: error instanceof Error ? error.message : String(error),
       }),
     );
