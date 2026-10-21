@@ -24,7 +24,7 @@ After changing bindings or variables in `wrangler.jsonc`, rerun `npm run cf-type
 
 ## Lead email configuration
 
-The form posts to `/api/lead` and sends through the `LEAD_EMAIL` Cloudflare Email Sending binding.
+The form posts to `/api/lead`, which posts the submission to Tracer with the Organization's Forms key; Tracer stores it under the Workspace, emails the business from the site's `info@` address, and counts it as a lead.
 
 - Public sender: `info@dumpsterrentalshainescity.com`
 - Delivery inbox: `spurjae@gmail.com`
@@ -39,7 +39,7 @@ Before deploying:
 4. Keep every To/BCC address in `allowed_destination_addresses` in `wrangler.jsonc`.
 5. Run a real form submission after deploy and confirm delivery.
 
-Wrangler deployments can replace dashboard-only variables. Keep `LEAD_DELIVERY_EMAIL` and `LEAD_NOTIFY_EMAIL` in source-controlled Wrangler configuration or define them consistently in an environment-specific Wrangler config.
+Wrangler deployments replace dashboard-only variables. `TRACER_FORMS_URL` lives in `wrangler.jsonc` (Tracer Staging until Tracer reaches Production); the Forms key is exported in your shell as `TRACER_FORM_KEY` and `npm run deploy` passes it to the Worker.
 
 ## Inbound public email
 

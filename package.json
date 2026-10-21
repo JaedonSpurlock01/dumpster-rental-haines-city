@@ -9,7 +9,7 @@
     "preview": "npm run build && wrangler dev",
     "check": "astro check",
     "cf-typegen": "wrangler types",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.10",
