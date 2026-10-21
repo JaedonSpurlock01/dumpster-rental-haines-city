@@ -10,20 +10,8 @@
     "directory": "./dist",
     "binding": "ASSETS"
   },
-  "send_email": [
-    {
-      "name": "LEAD_EMAIL",
-      "allowed_sender_addresses": [
-        "info@dumpsterrentalshainescity.com"
-      ],
-      "allowed_destination_addresses": [
-        "spurjae@gmail.com"
-      ]
-    }
-  ],
   "vars": {
-    "LEAD_DELIVERY_EMAIL": "spurjae@gmail.com",
-    "LEAD_NOTIFY_EMAIL": "spurjae@gmail.com"
+    "TRACER_FORMS_URL": "https://tracer-staging.jaedonaspurlock.workers.dev/api/forms"
   },
   "observability": {
     "enabled": true,
